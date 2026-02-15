@@ -19,7 +19,7 @@ RUN pip install --upgrade pip setuptools wheel
 WORKDIR /app
 
 COPY ./requirements.txt /app
-RUN pip install --no-cache-dir -r /app/requirements.txt
+RUN pip install --no-cache-dir --default-timeout=300 -r /app/requirements.txt
 
 # Hack to get around tensorflow-io issue - https://github.com/tensorflow/io/issues/1755
 RUN pip install tensorflow-io
